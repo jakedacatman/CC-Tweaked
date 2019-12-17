@@ -105,6 +105,7 @@ public class TileMonitor extends TileGeneric implements IPeripheralTile
         if( m_clientMonitor != null && m_xIndex == 0 && m_yIndex == 0 ) m_clientMonitor.destroy();
     }
 
+    @Nonnull
     @Override
     public boolean onActivate( PlayerEntity player, Hand hand, BlockRayTraceResult hit )
     {

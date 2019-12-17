@@ -66,9 +66,7 @@ public final class TurtlePlayer extends FakePlayer
         }
 
         BlockPos position = turtle.getPosition();
-        posX = position.getX() + 0.5;
-        posY = position.getY() + 0.5;
-        posZ = position.getZ() + 0.5;
+        func_226288_n_( position.getX() + 0.5, position.getY() + 0.5, position.getZ() + 0.5 ); // setPosition, without bounding box
 
         rotationYaw = turtle.getDirection().getHorizontalAngle();
         rotationPitch = 0.0f;
@@ -138,9 +136,8 @@ public final class TurtlePlayer extends FakePlayer
     @Override
     public Vec3d getPositionVector()
     {
-        return new Vec3d( posX, posY, posZ );
+        return getPositionVec();
     }
-
 
     @Override
     public float getEyeHeight( @Nonnull Pose pose )

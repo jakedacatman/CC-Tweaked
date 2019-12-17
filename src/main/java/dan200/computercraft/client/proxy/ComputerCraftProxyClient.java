@@ -39,9 +39,11 @@ public final class ComputerCraftProxyClient
         registerContainers();
 
         // Setup TESRs
-        ClientRegistry.bindTileEntitySpecialRenderer( TileMonitor.class, new TileEntityMonitorRenderer() );
-        ClientRegistry.bindTileEntitySpecialRenderer( TileCable.class, new TileEntityCableRenderer() );
-        ClientRegistry.bindTileEntitySpecialRenderer( TileTurtle.class, new TileEntityTurtleRenderer() );
+        ClientRegistry.bindTileEntityRenderer( TileMonitor.FACTORY_NORMAL, new TileEntityMonitorRenderer() );
+        ClientRegistry.bindTileEntityRenderer( TileMonitor.FACTORY_ADVANCED, new TileEntityMonitorRenderer() );
+        ClientRegistry.bindTileEntityRenderer( TileCable.FACTORY, new TileEntityCableRenderer() );
+        ClientRegistry.bindTileEntityRenderer( TileTurtle.FACTORY_NORMAL, new TileEntityTurtleRenderer() );
+        ClientRegistry.bindTileEntityRenderer( TileTurtle.FACTORY_ADVANCED, new TileEntityTurtleRenderer() );
     }
 
     private static void registerContainers()

@@ -81,7 +81,7 @@ public class PocketAPI implements ILuaAPI
                             stack = InventoryUtil.storeItems( stack, new PlayerMainInvWrapper( inventory ), inventory.currentItem );
                             if( !stack.isEmpty() )
                             {
-                                WorldUtil.dropItemStack( stack, player.getEntityWorld(), player.posX, player.posY, player.posZ );
+                                WorldUtil.dropItemStack( stack, player.getEntityWorld(), player.getPositionVec() );
                             }
                         }
                     }
@@ -112,7 +112,7 @@ public class PocketAPI implements ILuaAPI
                         stack = InventoryUtil.storeItems( stack, new PlayerMainInvWrapper( inventory ), inventory.currentItem );
                         if( stack.isEmpty() )
                         {
-                            WorldUtil.dropItemStack( stack, player.getEntityWorld(), player.posX, player.posY, player.posZ );
+                            WorldUtil.dropItemStack( stack, player.getEntityWorld(), player.getPositionVec() );
                         }
                     }
 

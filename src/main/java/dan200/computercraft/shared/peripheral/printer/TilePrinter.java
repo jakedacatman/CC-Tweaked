@@ -95,6 +95,7 @@ public final class TilePrinter extends TileGeneric implements DefaultSidedInvent
         }
     }
 
+    @Nonnull
     @Override
     public boolean onActivate( PlayerEntity player, Hand hand, BlockRayTraceResult hit )
     {

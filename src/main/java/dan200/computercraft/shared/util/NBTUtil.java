@@ -21,9 +21,9 @@ public final class NBTUtil
     private static INBT toNBTTag( Object object )
     {
         if( object == null ) return null;
-        if( object instanceof Boolean ) return new ByteNBT( (byte) ((boolean) (Boolean) object ? 1 : 0) );
-        if( object instanceof Number ) return new DoubleNBT( ((Number) object).doubleValue() );
-        if( object instanceof String ) return new StringNBT( object.toString() );
+        if( object instanceof Boolean ) return ByteNBT.func_229671_a_( (byte) ((boolean) (Boolean) object ? 1 : 0) );
+        if( object instanceof Number ) return DoubleNBT.func_229684_a_( ((Number) object).doubleValue() );
+        if( object instanceof String ) return StringNBT.func_229705_a_( object.toString() );
         if( object instanceof Map )
         {
             Map<?, ?> m = (Map<?, ?>) object;

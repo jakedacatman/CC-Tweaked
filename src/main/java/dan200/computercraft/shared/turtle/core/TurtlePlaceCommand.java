@@ -171,16 +171,16 @@ public class TurtlePlaceCommand implements ITurtleCommand
 
     private static void orientPlayer( ITurtleAccess turtle, TurtlePlayer turtlePlayer, BlockPos position, Direction direction )
     {
-        turtlePlayer.posX = position.getX() + 0.5;
-        turtlePlayer.posY = position.getY() + 0.5;
-        turtlePlayer.posZ = position.getZ() + 0.5;
+        double posX = position.getX() + 0.5;
+        double posY = position.getY() + 0.5;
+        double posZ = position.getZ() + 0.5;
 
         // Stop intersection with the turtle itself
         if( turtle.getPosition().equals( position ) )
         {
-            turtlePlayer.posX += 0.48 * direction.getXOffset();
-            turtlePlayer.posY += 0.48 * direction.getYOffset();
-            turtlePlayer.posZ += 0.48 * direction.getZOffset();
+            posX += 0.48 * direction.getXOffset();
+            posY += 0.48 * direction.getYOffset();
+            posZ += 0.48 * direction.getZOffset();
         }
 
         if( direction.getAxis() != Direction.Axis.Y )
@@ -194,9 +194,10 @@ public class TurtlePlaceCommand implements ITurtleCommand
             turtlePlayer.rotationPitch = DirectionUtil.toPitchAngle( direction );
         }
 
-        turtlePlayer.prevPosX = turtlePlayer.posX;
-        turtlePlayer.prevPosY = turtlePlayer.posY;
-        turtlePlayer.prevPosZ = turtlePlayer.posZ;
+        turtlePlayer.func_226288_n_( posX, posY, posZ ); // setPosition (without bounding box update)
+        turtlePlayer.prevPosX = posX;
+        turtlePlayer.prevPosY = posY;
+        turtlePlayer.prevPosZ = posZ;
         turtlePlayer.prevRotationPitch = turtlePlayer.rotationPitch;
         turtlePlayer.prevRotationYaw = turtlePlayer.rotationYaw;
 
@@ -210,7 +211,7 @@ public class TurtlePlaceCommand implements ITurtleCommand
         // See if there is an entity present
         final World world = turtle.getWorld();
         final BlockPos position = turtle.getPosition();
-        Vec3d turtlePos = new Vec3d( turtlePlayer.posX, turtlePlayer.posY, turtlePlayer.posZ );
+        Vec3d turtlePos = turtlePlayer.getPositionVec();
         Vec3d rayDir = turtlePlayer.getLook( 1.0f );
         Pair<Entity, Vec3d> hit = WorldUtil.rayTraceEntities( world, turtlePos, rayDir, 1.5 );
         if( hit == null )

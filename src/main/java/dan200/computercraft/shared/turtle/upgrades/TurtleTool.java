@@ -119,7 +119,7 @@ public class TurtleTool extends AbstractTurtleUpgrade
         final TurtlePlayer turtlePlayer = TurtlePlaceCommand.createPlayer( turtle, position, direction );
 
         // See if there is an entity present
-        Vec3d turtlePos = new Vec3d( turtlePlayer.posX, turtlePlayer.posY, turtlePlayer.posZ );
+        Vec3d turtlePos = turtlePlayer.getPositionVec();
         Vec3d rayDir = turtlePlayer.getLook( 1.0f );
         Pair<Entity, Vec3d> hit = WorldUtil.rayTraceEntities( world, turtlePos, rayDir, 1.5 );
         if( hit != null )

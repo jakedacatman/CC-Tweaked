@@ -103,6 +103,7 @@ public abstract class TileComputerBase extends TileGeneric implements IComputerT
         return false;
     }
 
+    @Nonnull
     @Override
     public boolean onActivate( PlayerEntity player, Hand hand, BlockRayTraceResult hit )
     {

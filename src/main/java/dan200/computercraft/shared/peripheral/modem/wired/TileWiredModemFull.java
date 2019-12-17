@@ -185,6 +185,7 @@ public class TileWiredModemFull extends TileGeneric implements IPeripheralTile
         }
     }
 
+    @Nonnull
     @Override
     public boolean onActivate( PlayerEntity player, Hand hand, BlockRayTraceResult hit )
     {

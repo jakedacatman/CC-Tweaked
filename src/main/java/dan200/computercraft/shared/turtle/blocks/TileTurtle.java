@@ -165,6 +165,7 @@ public class TileTurtle extends TileComputerBase implements ITurtleTile, Default
         }
     }
 
+    @Nonnull
     @Override
     public boolean onActivate( PlayerEntity player, Hand hand, BlockRayTraceResult hit )
     {
